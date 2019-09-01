@@ -28,10 +28,22 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "node_modules/font-awesome/css/font-awesome.css",
+              "node_modules/material-design-iconic-font/dist/css/material-design-iconic-font.css"
+              
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/jquery-3.2.1.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              
+              "src/assets/js/popper.min.js",
+              "src/assets/js/slick.min.js",
+              "src/assets/js/wow.min.js",
+              "src/assets/js/main.js"
+              
+            ]
           },
           "configurations": {
             "production": {
