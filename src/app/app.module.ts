@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BaseComponent } from './presentation/view/base/base.component';
+import { ChatbotComponent } from './presentation/view/pages/chatbot/chatbot.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    BaseComponent
+    BaseComponent,
+    ChatbotComponent
   ],
   imports: [
     BrowserModule,
