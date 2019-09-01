@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { LoginRoutingModule } from './login-routing.module';
-import { LoginComponent } from './login.component';
+import { PesquisaRoutingModule } from './pesquisa-routing.module';
+import { PesquisaComponent } from './pesquisa.component';
 import { AppMaterialModule } from 'src/app/app-material.module';
 
 
 @NgModule({
-  declarations: [LoginComponent],
+  declarations: [PesquisaComponent],
   imports: [
     CommonModule,
-    LoginRoutingModule,
+    PesquisaRoutingModule,
     AppMaterialModule
   ]
 })
-export class LoginModule { }
+export class PesquisaModule { }

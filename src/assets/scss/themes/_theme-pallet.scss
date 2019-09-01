@@ -1,0 +1,67 @@
+@import '../utils/colors';
+
+$custom-red-theme: (
+  50: lighten($primary-red, 5%),
+  100: lighten($primary-red, 4%),
+  200: lighten($primary-red, 3%),
+  300: lighten($primary-red, 2%),
+  400: lighten($primary-red, 1%),
+  500: $primary-red,
+  600: darken($primary-red, 1%),
+  700: darken($primary-red, 2%),
+  800: darken($primary-red, 3%),
+  900: darken($primary-red, 4%),
+  A100: darken($primary-red, 5%),
+  A200: darken($primary-red, 6%),
+  A400: darken($primary-red, 7%),
+  A700: darken($primary-red, 8%),
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $light-primary-text,
+    400: $light-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text
+  )
+);
+
+$custom-black-theme: (
+  50: lighten($primary-black, 5%),
+  100: lighten($primary-black, 4%),
+  200: lighten($primary-black, 3%),
+  300: lighten($primary-black, 2%),
+  400: lighten($primary-black, 1%),
+  500: $primary-black,
+  600: darken($primary-black, 1%),
+  700: darken($primary-black, 2%),
+  800: darken($primary-black, 3%),
+  900: darken($primary-black, 4%),
+  A100: darken($primary-black, 5%),
+  A200: darken($primary-black, 6%),
+  A400: darken($primary-black, 7%),
+  A700: darken($primary-black, 8%),
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $light-primary-text,
+    400: $light-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text
+  )
+);
