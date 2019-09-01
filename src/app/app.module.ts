@@ -5,12 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BaseComponent } from './presentation/view/base/base.component';
+import { RelatorioComponent } from './presentation/view/pages/relatorio/relatorio.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    BaseComponent
+    RelatorioComponent
+
   ],
   imports: [
     BrowserModule,
