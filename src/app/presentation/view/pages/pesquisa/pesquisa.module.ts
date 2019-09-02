@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { PesquisaRoutingModule } from './pesquisa-routing.module';
 import { PesquisaComponent } from './pesquisa.component';
 import { AppMaterialModule } from 'src/app/app-material.module';
+import { BaseModule } from '../../base/base.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { AppMaterialModule } from 'src/app/app-material.module';
   imports: [
     CommonModule,
     PesquisaRoutingModule,
-    AppMaterialModule
+    AppMaterialModule,
+    BaseModule
   ]
 })
 export class PesquisaModule { }

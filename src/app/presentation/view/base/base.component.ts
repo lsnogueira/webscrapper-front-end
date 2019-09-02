@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 declare var $: any;
-//
 
 
 @Component({
@@ -10,7 +10,9 @@ declare var $: any;
 })
 export class BaseComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
@@ -93,35 +95,9 @@ export class BaseComponent implements OnInit {
       console.log(error);
     }
   }
-//   ngAfterViewInit(){
-   
-//     $(".dropdown-button").dropdown();
-//     $(document).ready(function(){
-//       	$(".dropdown-button").dropdown();
-// 		$("#sideNav").click(function(){
-//             console.log('teste')
-// 			if($(this).hasClass('closed')){
-// 				$('.navbar-side').animate({left: '0px'});
-// 				$(this).removeClass('closed');
-// 				$('#page-wrapper').animate({'margin-left' : '260px'});
-				
-// 			}
-// 			else{
-// 			    $(this).addClass('closed');
-// 				$('.navbar-side').animate({left: '-260px'});
-// 				$('#page-wrapper').animate({'margin-left' : '0px'}); 
-// 			}
-// 		});
-//     });
-//     $('#main-menu').metisMenu();
-			
-//     $(window).bind("load resize", function () {
-//         if ($(this).width() < 768) {
-//             $('div.sidebar-collapse').addClass('collapse')
-//         } else {
-//             $('div.sidebar-collapse').removeClass('collapse')
-//         }
-//     });
-// }
+
+  goConsulta(): void {
+    this.router.navigateByUrl('/relatorio');
+  }
 
 }

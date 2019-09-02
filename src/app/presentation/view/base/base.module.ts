@@ -6,10 +6,15 @@ import { AppMaterialModule } from 'src/app/app-material.module';
 
 
 @NgModule({
-  declarations: [BaseComponent],
+  declarations: [
+    BaseComponent
+  ],
   imports: [
     CommonModule,
     AppMaterialModule
+  ],
+  exports: [
+    BaseComponent
   ]
 })
 export class BaseModule { }
