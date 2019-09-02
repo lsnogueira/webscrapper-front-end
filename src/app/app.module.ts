@@ -6,13 +6,16 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BaseComponent } from './presentation/view/base/base.component';
 import { ChatbotComponent } from './presentation/view/pages/chatbot/chatbot.component';
+import { RelatorioComponent } from './presentation/view/pages/relatorio/relatorio.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     BaseComponent,
-    ChatbotComponent
+    ChatbotComponent,
+    RelatorioComponent
   ],
   imports: [
     BrowserModule,
