@@ -11,8 +11,7 @@ import { RelatorioComponent } from './presentation/view/pages/relatorio/relatori
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ChatbotComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,

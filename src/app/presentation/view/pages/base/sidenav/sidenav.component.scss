@@ -1,0 +1,162 @@
+@import '../../../../../../assets/scss/utils/variables';
+
+app-sidenav {
+  background: green;
+  border-right: 1px solid #000;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  .container {
+    transition: all 0.15s ease-in 0.01s;
+
+    width: $sidenav-width;
+    height: 100vh;
+
+    .logo {
+      border-bottom: 1px solid #000;
+      background-image: url("src/assets/images/mpsp-logo.png");
+      background-size: 70%;
+      background-position: center center;
+      background-repeat: no-repeat;
+
+      width: 100%;
+      height: $header-height;
+    }
+
+    .menu-items-content {
+      ul {
+        li {
+          padding: 0 20px;
+
+          width: 100%;
+          height: 70px;
+
+          a {
+            text-decoration: none;
+            color: #64afd6;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            width: 100%;
+            height: 100%;
+          }
+
+          mat-icon {
+            transition: all 0.1s ease-in 0.1s;
+
+            position: relative;
+            left: 0;
+          }
+
+          span {
+            display: none;
+
+            position: relative;
+            left: -40px;
+          }
+
+          &:hover {
+            transition: all 0.1s ease-in;
+
+            background-color: lighten(#ccc, 20%);
+          }
+        }
+      }
+    }
+
+    &.opened {
+      width: $sidenav-width-opened;
+
+      transition: all 0.25s ease-in-out 0.01s;
+
+      .logo {
+        background-size: 40%;
+      }
+
+      .menu-items-content {
+        ul {
+          li {
+            a { 
+              transition: all 0.2s ease-in 0.1s;
+
+              justify-content: start;
+              // align-items: initial;
+             }
+            // justify-content: start;
+
+            mat-icon {
+              transition: all 0.2s ease-in 0.1s;
+            }
+
+            span {
+              // animation-name: slideLeft;
+              // animation-duration: 0.4s;
+              // animation-delay: 1s;
+              // opacity: 1;
+
+              left: 10px;
+
+              color: #000;
+
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .mob {
+    display: none;
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    opacity: 0;
+    left: -100%;
+  }
+
+  80% {
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .desk {
+    display: none;
+  }
+
+  .mob {
+    display: block !important;
+  }
+
+  app-sidenav {
+    width: 100vw;
+    height: 60px;
+    z-index: 10;
+
+    bottom: 0;
+    top: initial;
+
+    .container {
+      background: orange;
+
+      position: fixed;
+      left:0;
+      bottom: 0;
+      
+      width: 100vw;
+      height: $sidenav-height-mob;
+    }
+  }
+}
