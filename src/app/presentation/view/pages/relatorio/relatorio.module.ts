@@ -10,6 +10,9 @@ import { BaseModule } from '../../base/base.module';
   imports: [
     CommonModule,
     BaseModule
+  ],
+  exports: [
+    RelatorioComponent,
   ]
 })
 export class RelatorioModule { }

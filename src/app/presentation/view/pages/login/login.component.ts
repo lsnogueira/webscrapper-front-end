@@ -14,6 +14,6 @@ export class LoginComponent implements OnInit {
   }
 
   goSearch(): void {
-    this.router.navigate(['consulta']);
+    this.router.navigate(['recursos']);
   }
 }

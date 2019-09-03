@@ -5,6 +5,8 @@ import { PesquisaRoutingModule } from './pesquisa-routing.module';
 import { PesquisaComponent } from './pesquisa.component';
 import { AppMaterialModule } from 'src/app/app-material.module';
 import { BaseModule } from '../../base/base.module';
+import { RelatorioModule } from '../relatorio/relatorio.module';
+import { ChatbotModule } from '../chatbot/chatbot.module';
 
 
 @NgModule({
@@ -13,7 +15,9 @@ import { BaseModule } from '../../base/base.module';
     CommonModule,
     PesquisaRoutingModule,
     AppMaterialModule,
-    BaseModule
+    BaseModule,
+    RelatorioModule,
+    ChatbotModule
   ]
 })
 export class PesquisaModule { }

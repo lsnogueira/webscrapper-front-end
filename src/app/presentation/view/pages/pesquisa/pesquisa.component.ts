@@ -6,10 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pesquisa.component.scss']
 })
 export class PesquisaComponent implements OnInit {
+  pages = {
+    showConsulta: true,
+    showRelatorio: false,
+    showChatbot: false
+  };
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  pageControl(e: any): void {
+    this.pages = e;
+  }
 }
