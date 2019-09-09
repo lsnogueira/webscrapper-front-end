@@ -1,21 +1,30 @@
 @import 'assets/scss/themes/theme';
 @import 'assets/scss/utils/colors';
-@import "./assets/scss/utils/reset";
-@import "./assets/scss/utils/variables";
-@import "./assets/scss/utils/base";
+@import './assets/scss/utils/reset';
+@import './assets/scss/utils/variables';
+@import './assets/scss/utils/base';
 
-html,
-body {
-  height: 100%;
-}
+/**
+/* - DEBUG CSS
+**/
+// * { background-color: rgba(255,0,0,.2); }
+// * * { background-color: rgba(0,255,0,.2); }
+// * * * { background-color: rgba(0,0,255,.2); }
+// * * * * { background-color: rgba(255,0,255,.2); }
+// * * * * * { background-color: rgba(0,255,255,.2); }
+// * * * * * * { background-color: rgba(255,255,0,.2); }
+// * * * * * * * { background-color: rgba(255,0,0,.2); }
+// * * * * * * * * { background-color: rgba(0,255,0,.2); }
+// * * * * * * * * * { background-color: rgba(0,0,255,.2); }
+/**
+/* - END DEBUG CSS
+**/
+
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  background:
+    url('assets/images/bg-front.svg')
+    no-repeat
+    174% 65vh;
 }
-
-.bigger {
-  transition: all 0.3s ease-in;
-
-  height: 300px !important;
-}
-

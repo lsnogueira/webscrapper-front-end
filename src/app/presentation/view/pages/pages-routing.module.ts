@@ -10,6 +10,11 @@ import { BaseComponent } from './base/base.component';
 const routes: Routes = [
   {
     path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+  {
+    path: '',
     component: BaseComponent,
     children: [
       { path: 'login', component: LoginComponent },
