@@ -1,5 +1,4 @@
-<ng-container
-  *ngIf="isLoginPage; then loginPage; else notLoginPage">
+<ng-container *ngIf="isLoginPage; then loginPage; else notLoginPage">
 </ng-container>
 
 <ng-template #loginPage>
@@ -7,9 +6,9 @@
 </ng-template>
 
 <ng-template #notLoginPage>
-  <!-- <app-header></app-header> -->
+  <app-header></app-header>
   <app-sidenav></app-sidenav>
-  <p>base work's</p>
-  <router-outlet></router-outlet>
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
 </ng-template>
-

@@ -18,7 +18,7 @@ const routes: Routes = [
     component: BaseComponent,
     children: [
       { path: 'login', component: LoginComponent },
-      { path: 'consulta', component: BaseComponent },
+      { path: 'consulta', component: PesquisaComponent },
       { path: 'relatorio', component: RelatorioComponent },
       { path: 'chatbot', component: ChatbotComponent }
     ]
