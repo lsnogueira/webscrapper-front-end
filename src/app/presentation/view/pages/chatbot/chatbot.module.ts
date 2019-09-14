@@ -1,10 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-<<<<<<< HEAD
-import { BaseModule } from '../../base/base.module';
-=======
 import { BaseModule } from '../base/base.module';
->>>>>>> router-refact
 import { ChatbotComponent } from './chatbot.component';
 
 

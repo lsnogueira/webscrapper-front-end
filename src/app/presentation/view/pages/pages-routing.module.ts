@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RelatorioComponent } from './relatorio/relatorio.component';
 import { ChatbotComponent } from './chatbot/chatbot.component';
+import { PagesComponent } from './pages.component';
+import { PesquisaComponent } from './pesquisa/pesquisa.component';
 
 const routes: Routes = [
   {
