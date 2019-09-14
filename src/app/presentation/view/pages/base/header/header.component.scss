@@ -1,0 +1,27 @@
+@import '../../../../../../assets/scss/utils/variables';
+
+app-header {
+  header {
+    border-bottom: 1px solid #ccc;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 20px;
+
+    width: 100%;
+    height: $header-height;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  app-header {
+    header {
+      height: #{$header-height-mob};
+
+      button {
+        display: none !important;
+      }
+    }
+  }
+}

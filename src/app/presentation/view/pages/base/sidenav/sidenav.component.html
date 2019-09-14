@@ -1,0 +1,32 @@
+<ng-container *ngIf="shouldRun">
+  <mat-toolbar class="example-header">Header</mat-toolbar>
+
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav
+      #sidenav
+      mode="side"
+      opened
+      class="example-sidenav"
+      [fixedInViewport]="true"
+    >
+      Sidenav
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <p><mat-checkbox>Fixed</mat-checkbox></p>
+      <p>
+        <mat-form-field>
+          <input matInput type="number" placeholder="Top gap" />
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <input matInput type="number" placeholder="Bottom gap" />
+        </mat-form-field>
+      </p>
+      <p><button mat-button (click)="sidenav.toggle()">Toggle</button></p>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+  <mat-toolbar class="example-footer">Footer</mat-toolbar>
+</ng-container>
