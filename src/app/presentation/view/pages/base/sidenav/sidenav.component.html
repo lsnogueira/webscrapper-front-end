@@ -1,7 +1,11 @@
 <nav class="main-menu">
   <ul>
     <li>
-      <a class="select-page" href="#">
+      <a
+        [routerLink]="['/login']"
+        class="select-page"
+        href="javascript:void(0)"
+      >
         <mat-icon>home</mat-icon>
         <span class="nav-text">
           Dashboard
@@ -9,7 +13,11 @@
       </a>
     </li>
     <li class="has-subnav">
-      <a class="select-page" href="#">
+      <a
+        [routerLink]="['/consulta']"
+        class="select-page"
+        href="javascript:void(0)"
+      >
         <mat-icon>find_in_page</mat-icon>
         <span class="nav-text">
           Consulta
@@ -17,7 +25,11 @@
       </a>
     </li>
     <li class="has-subnav">
-      <a class="select-page" href="#">
+      <a
+        [routerLink]="['/relatorio']"
+        class="select-page"
+        href="javascript:void(0)"
+      >
         <mat-icon>format_align_left</mat-icon>
         <span class="nav-text">
           Relatórios
@@ -25,7 +37,11 @@
       </a>
     </li>
     <li class="has-subnav">
-      <a class="select-page" href="#">
+      <a
+        class="select-page"
+        [routerLink]="['/chatbot']"
+        href="javascript:void(0)"
+      >
         <mat-icon>adb</mat-icon>
         <span class="nav-text">
           Chatbot
@@ -33,7 +49,7 @@
       </a>
     </li>
     <li>
-      <a class="select-page" href="#">
+      <a class="select-page" href="javascript:void(0)">
         <mat-icon>phonelink</mat-icon>
         <span class="nav-text">
           App Mobile
@@ -44,7 +60,7 @@
 
   <ul class="logout">
     <li>
-      <a class="select-page" href="#">
+      <a class="select-page" href="javascript:void(0)">
         <mat-icon>person</mat-icon>
         <span class="nav-text">
           Perfil
@@ -52,7 +68,11 @@
       </a>
     </li>
     <li>
-      <a class="select-page" href="#">
+      <a
+        [routerLink]="['/login']"
+        class="select-page"
+        href="javascript:void(0)"
+      >
         <mat-icon>power_settings_new</mat-icon>
         <span class="nav-text">
           Logout
