@@ -3,15 +3,19 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RelatorioComponent } from './relatorio/relatorio.component';
 import { ChatbotComponent } from './chatbot/chatbot.component';
-import { BaseComponent } from './base/base.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: BaseComponent,
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+  {
+    path: '',
+    component: PagesComponent,
     children: [
       { path: 'login', component: LoginComponent },
-      { path: 'consulta', component: BaseComponent },
+      { path: 'consulta', component: PesquisaComponent },
       { path: 'relatorio', component: RelatorioComponent },
       { path: 'chatbot', component: ChatbotComponent }
     ]
