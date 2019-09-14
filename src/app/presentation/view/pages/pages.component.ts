@@ -30,13 +30,14 @@ export class PagesComponent implements OnInit, OnChanges {
 
   constructor(private router: Router) {
     router.events.subscribe((res: NavigationStart) => {
-      this.isLoginPage = res.url !== '/login';
-
+      if (res.url === '/consulta') {
+        this.isLoginPage = false;
+      }
     });
   }
 
   ngOnInit(): void {
-    this.isLoginPage = this.router.url === '/login';
+    this.isLoginPage = this.router.url === '/login' ? true : false;
   }
 
   ngOnChanges() {}
