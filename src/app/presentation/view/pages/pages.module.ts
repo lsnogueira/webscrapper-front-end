@@ -19,9 +19,10 @@ import { RouterModule } from '@angular/router';
     PagesRoutingModule,
     BaseModule,
     LoginModule,
-    PesquisaModule,
     RelatorioModule,
+    PesquisaModule,
     ChatbotModule,
+    RouterModule
   ]
 })
 export class PagesModule { }

@@ -7,16 +7,7 @@ import { SidenavService } from 'src/app/presentation/shared/services/sidenav.ser
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  constructor() {}
 
-  constructor(
-    private sidenav$: SidenavService
-  ) { }
-
-  ngOnInit() {
-
-  }
-
-  toggleSideNav() {
-    this.sidenav$.toggleSideNav();
-  }
+  ngOnInit() {}
 }

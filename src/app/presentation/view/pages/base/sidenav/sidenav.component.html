@@ -1,32 +1,83 @@
-<ng-container *ngIf="shouldRun">
-  <mat-toolbar class="example-header">Header</mat-toolbar>
+<nav class="main-menu">
+  <ul>
+    <li>
+      <a
+        [routerLink]="['/login']"
+        class="select-page"
+        href="javascript:void(0)"
+      >
+        <mat-icon>home</mat-icon>
+        <span class="nav-text">
+          Dashboard
+        </span>
+      </a>
+    </li>
+    <li class="has-subnav">
+      <a
+        [routerLink]="['/consulta']"
+        class="select-page"
+        href="javascript:void(0)"
+      >
+        <mat-icon>find_in_page</mat-icon>
+        <span class="nav-text">
+          Consulta
+        </span>
+      </a>
+    </li>
+    <li class="has-subnav">
+      <a
+        [routerLink]="['/relatorio']"
+        class="select-page"
+        href="javascript:void(0)"
+      >
+        <mat-icon>format_align_left</mat-icon>
+        <span class="nav-text">
+          Relatórios
+        </span>
+      </a>
+    </li>
+    <li class="has-subnav">
+      <a
+        class="select-page"
+        [routerLink]="['/chatbot']"
+        href="javascript:void(0)"
+      >
+        <mat-icon>adb</mat-icon>
+        <span class="nav-text">
+          Chatbot
+        </span>
+      </a>
+    </li>
+    <li>
+      <a class="select-page" href="javascript:void(0)">
+        <mat-icon>phonelink</mat-icon>
+        <span class="nav-text">
+          App Mobile
+        </span>
+      </a>
+    </li>
+  </ul>
 
-  <mat-sidenav-container class="example-container">
-    <mat-sidenav
-      #sidenav
-      mode="side"
-      opened
-      class="example-sidenav"
-      [fixedInViewport]="true"
-    >
-      Sidenav
-    </mat-sidenav>
-
-    <mat-sidenav-content>
-      <p><mat-checkbox>Fixed</mat-checkbox></p>
-      <p>
-        <mat-form-field>
-          <input matInput type="number" placeholder="Top gap" />
-        </mat-form-field>
-      </p>
-      <p>
-        <mat-form-field>
-          <input matInput type="number" placeholder="Bottom gap" />
-        </mat-form-field>
-      </p>
-      <p><button mat-button (click)="sidenav.toggle()">Toggle</button></p>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-
-  <mat-toolbar class="example-footer">Footer</mat-toolbar>
-</ng-container>
+  <ul class="logout">
+    <li>
+      <a class="select-page" href="javascript:void(0)">
+        <mat-icon>person</mat-icon>
+        <span class="nav-text">
+          Perfil
+        </span>
+      </a>
+    </li>
+    <li>
+      <a
+        [routerLink]="['/login']"
+        class="select-page"
+        href="javascript:void(0)"
+      >
+        <mat-icon>power_settings_new</mat-icon>
+        <span class="nav-text">
+          Logout
+        </span>
+      </a>
+    </li>
+  </ul>
+</nav>
