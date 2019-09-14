@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BaseModule } from '../../base/base.module';
+import { BaseModule } from '../base/base.module';
+import { ChatbotComponent } from './chatbot.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [ChatbotComponent],
   imports: [
     CommonModule,
     BaseModule

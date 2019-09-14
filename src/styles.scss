@@ -1,2 +1,21 @@
 @import 'assets/scss/themes/theme';
 @import 'assets/scss/utils/colors';
+@import "./assets/scss/utils/reset";
+@import "./assets/scss/utils/variables";
+@import "./assets/scss/utils/base";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.bigger {
+  transition: all 0.3s ease-in;
+
+  height: 300px !important;
+}
+
