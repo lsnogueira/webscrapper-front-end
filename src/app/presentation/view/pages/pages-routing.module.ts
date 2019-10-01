@@ -13,10 +13,13 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
     path: '',
     component: PagesComponent,
     children: [
-      { path: 'login', component: LoginComponent },
       { path: 'consulta', component: PesquisaComponent },
       { path: 'relatorio', component: RelatorioComponent },
       { path: 'chatbot', component: ChatbotComponent }
