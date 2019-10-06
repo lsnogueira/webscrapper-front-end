@@ -1,0 +1,66 @@
+@import '../../../../../assets/scss/utils/colors';
+
+:host {
+
+  .search-card {
+    width: 800px;
+    left: 50%;
+    transform: translate(-50%);
+  }
+
+  .content {
+    margin-left: 8px;
+    font-size: 16px;
+
+    mat-form-field {
+      width: 100%;
+      margin-bottom: 25px;
+      span {
+        color: $placeholder;
+      }
+    }
+
+    .address {
+      padding: 0 30px;
+    }
+
+    .error-message {
+      position: absolute;
+      left: 30px;
+      color: red;
+      font-size: 12px;
+      bottom: 33%;
+    }
+
+    .loading {
+      width: 24px;
+      height: 24px;
+      // background: url('../../images/Ripple-1s-200px.gif');
+    }
+
+    button {
+      margin-left: 12px;
+      margin-bottom: 20px;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    .search-card {
+      width: 90vw;
+      height: 60vh;
+      margin-top: 20px !important;
+    }
+
+    .content {
+      button {
+        margin-top: 20%;
+        width: 97%;
+      }
+
+      .error-message {
+        bottom: 43%;
+        left: 7%;
+      }
+    }
+  }
+}

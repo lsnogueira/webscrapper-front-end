@@ -1,0 +1,96 @@
+<mat-card class="search-card mt-5">
+  <mat-card-header>
+    <mat-card-title><h3>Consulta cidadão</h3></mat-card-title>
+    <mat-card-subtitle
+      >Digite as informações do cidadão para realizar uma
+      pesquisa.</mat-card-subtitle
+    >
+  </mat-card-header>
+  <mat-card-content>
+    <form>
+      <div class="content">
+        <div class="row col-12">
+          <div class="col-6">
+            <mat-form-field>
+              <input matInput placeholder="Nome" color="primary" />
+              <mat-error>
+                É obrigatório o preenchimento deste campo
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-6">
+            <mat-form-field>
+              <input matInput placeholder="E-mail" color="primary" />
+              <mat-error>
+                E-mail inválido
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row col-12">
+          <div class="col-6">
+            <mat-form-field>
+              <input matInput placeholder="RG" color="primary" />
+              <mat-error>
+                Documento inválido
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-6">
+            <mat-form-field>
+              <input matInput placeholder="CPF" color="primary" />
+              <mat-error>
+                Documento inválido
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row col-12 address">
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Endereço"
+              color="primary"
+              formControlName="searchInput"
+            />
+            <mat-error>
+              Endereço inválido
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="row col-12">
+          <div class="col-6">
+            <mat-form-field>
+              <span matPrefix>https://facebook.com/</span>
+              <input matInput placeholder="matheus.didier" color="primary" />
+              <mat-error>
+                Perfil inválido
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-6">
+            <mat-form-field>
+              <span matPrefix>https://linkedin.com/in/</span>
+              <input matInput placeholder="lucas-snogueira" color="primary" />
+              <mat-error>
+                Perfil inválido
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <button mat-raised-button color="primary" type="submit">
+          Pesquisar
+          <mat-icon>search</mat-icon>
+          <!-- *ngIf="!submitted" -->
+          <!-- <img
+            src="assets/images/Ripple-1s-200px.gif"
+            width="24px"
+            height="24px"
+            *ngIf="submitted"
+          /> -->
+        </button>
+      </div>
+      <!-- /.content -->
+    </form>
+  </mat-card-content>
+</mat-card>

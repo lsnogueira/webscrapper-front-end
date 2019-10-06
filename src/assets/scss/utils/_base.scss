@@ -1,0 +1,36 @@
+.app-container {
+  transition: all 0.15s ease-in;
+
+  width: calc(100% - #{$sidenav-width});
+  height: calc(100vh);
+
+  position: fixed;
+  top: 0;
+  right: 0;
+
+  &.opened {
+    width: calc(100% - #{$sidenav-width-opened});
+    transition: all 0.3s ease-in-out;
+  }
+
+  .page-content {
+    overflow-y: auto;
+
+    padding: 15px 20px;
+
+    width: 100%;
+    height: calc(100vh - #{$header-height});
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .app-container {
+    width: 100vw;
+
+    .page-content {
+      padding-bottom: calc(#{$sidenav-height-mob} + 20px);
+
+      height: calc(100vh - #{$header-height-mob});
+    }
+  }
+}

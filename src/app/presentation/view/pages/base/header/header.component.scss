@@ -1,0 +1,15 @@
+@import '../../../../../../assets/scss/utils/variables';
+@import '../../../../../../assets/scss/utils/colors';
+
+:host {
+  .top-nav {
+    z-index: $header-zindex;
+    border: 1px solid $border-navs;
+    padding-left: 50px;
+    background-color: #fff;
+  }
+  .logo {
+    width: 100px;
+    height: 60px;
+  }
+}
