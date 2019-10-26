@@ -1,0 +1,39 @@
+@import '../../../../../assets/scss/utils/colors';
+
+:host {
+
+  .search-card {
+    width: 800px;
+    left: 50%;
+    transform: translate(-50%);
+  }
+
+  .mat-stroked-button {
+
+  }
+
+  .first-form-field {
+    width: 35%;
+    margin-bottom: 1.25rem;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .search-card {
+      width: 90vw;
+      height: 60vh;
+      margin-top: 20px !important;
+    }
+
+    .content {
+      button {
+        margin-top: 20%;
+        width: 97%;
+      }
+
+      .error-message {
+        bottom: 43%;
+        left: 7%;
+      }
+    }
+  }
+}

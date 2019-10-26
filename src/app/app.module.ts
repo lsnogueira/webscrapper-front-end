@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChatbotComponent } from './presentation/view/pages/chatbot/chatbot.component';
 import { RelatorioComponent } from './presentation/view/pages/relatorio/relatorio.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -17,6 +18,7 @@ import { RelatorioComponent } from './presentation/view/pages/relatorio/relatori
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

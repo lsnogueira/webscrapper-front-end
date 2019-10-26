@@ -5,7 +5,7 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { BaseModule } from './base/base.module';
 import { PagesComponent } from './pages.component';
 import { LoginModule } from './login/login.module';
-import { PesquisaModule } from './pesquisa/pesquisa.module';
+import { ConsultaModule } from './consulta/consulta.module';
 import { RelatorioModule } from './relatorio/relatorio.module';
 import { ChatbotModule } from './chatbot/chatbot.module';
 import { RouterModule } from '@angular/router';
@@ -20,7 +20,7 @@ import { RouterModule } from '@angular/router';
     BaseModule,
     LoginModule,
     RelatorioModule,
-    PesquisaModule,
+    ConsultaModule,
     ChatbotModule,
     RouterModule
   ]

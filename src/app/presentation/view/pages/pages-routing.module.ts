@@ -4,7 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { RelatorioComponent } from './relatorio/relatorio.component';
 import { ChatbotComponent } from './chatbot/chatbot.component';
 import { PagesComponent } from './pages.component';
-import { PesquisaComponent } from './pesquisa/pesquisa.component';
+import { ConsultaComponent } from './consulta/consulta.component';
 
 const routes: Routes = [
   {
@@ -20,7 +20,7 @@ const routes: Routes = [
     path: '',
     component: PagesComponent,
     children: [
-      { path: 'consulta', component: PesquisaComponent },
+      { path: 'consulta', component: ConsultaComponent },
       { path: 'relatorio', component: RelatorioComponent },
       { path: 'chatbot', component: ChatbotComponent }
     ]

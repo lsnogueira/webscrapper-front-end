@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ILoginUsecase } from './interfaces';
-import { LoginUsecaseService } from './usecases';
+import { ILoginUsecase, IConsultaUsecase } from './interfaces';
+import { LoginUsecaseService, ConsultaUsecaseService } from './usecases';
 
 
 
@@ -11,7 +11,8 @@ import { LoginUsecaseService } from './usecases';
     CommonModule
   ],
   providers: [
-    { provide: ILoginUsecase, useClass: LoginUsecaseService }
+    { provide: ILoginUsecase, useClass: LoginUsecaseService },
+    { provide: IConsultaUsecase, useClass: ConsultaUsecaseService },
   ]
 })
 export class CoreModule { }

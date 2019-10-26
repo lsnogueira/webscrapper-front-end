@@ -1,0 +1,68 @@
+<mat-card class="search-card mt-5">
+  <mat-card-header>
+    <mat-card-title><h3>Consulta</h3></mat-card-title>
+    <mat-card-subtitle
+      >De acordo com a opção selecionado iremos coletar os dados nos portais
+      relevantes.</mat-card-subtitle
+    >
+  </mat-card-header>
+  <mat-card-content>
+    <mat-horizontal-stepper [linear]="true" #stepper>
+      <mat-step [stepControl]="formQueryTypes">
+        <form [formGroup]="formQueryTypes" (onSubmit)="c">
+          <ng-template matStepLabel>Selecione o tipo de consulta</ng-template>
+          <mat-form-field class="first-form-field">
+            <input
+              type="text"
+              placeholder="Tipo de Consulta"
+              matInput
+              formControlName="queryType"
+              [matAutocomplete]="auto"
+              required
+            />
+            <mat-error>
+              É obrigatório o preenchimento deste campo
+            </mat-error>
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option
+                *ngFor="let option of filteredOptions | async"
+                [value]="option"
+              >
+                {{ option }}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+          <div class="w-100 d-flex justify-content-end">
+            <button mat-button color="warn" matStepperNext>Avançar</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Preencha ao menos um campo</ng-template>
+          <div class="row col-12 mb-2">
+            <div
+              *ngFor="let item of formArray.controls; let i = index"
+              formArrayName="fields"
+              class="col-6"
+            >
+              <p>{{ item | json }}</p>
+            </div>
+          </div>
+          <div class="w-100 d-flex justify-content-end">
+            <button mat-button color="warn" class="mr-2" matStepperPrevious>
+              Voltar
+            </button>
+            <button mat-button color="warn" matStepperNext>Avançar</button>
+          </div>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Pesquisar</ng-template>
+        Confirme os dados informados para pesquisa
+        <div>
+          <button mat-button matStepperPrevious>Voltar</button>
+          <button mat-button (click)="stepper.reset()">Be happy</button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </mat-card-content>
+</mat-card>
