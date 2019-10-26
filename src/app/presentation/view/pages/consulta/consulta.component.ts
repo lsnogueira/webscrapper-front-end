@@ -1,10 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
+
 import { QueryTypes } from 'src/app/presentation/shared/enums';
 import { Observable, Subscription } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+import { saveAs } from 'file-saver';
+
 import { ConsultaControllerService } from 'src/app/presentation/controllers/consulta/consulta-controller.service';
-import { ConsultaRepositoryService } from 'src/app/data/repositories';
+import { GlobalsService } from 'src/app/presentation/shared/services';
 
 const QUERY_TYPES = QueryTypes;
 
@@ -22,7 +25,8 @@ export class ConsultaComponent implements OnInit, OnDestroy {
   private subscription = new Subscription();
 
   constructor(
-    private controller: ConsultaRepositoryService
+    private consultaController: ConsultaControllerService,
+    private globals: GlobalsService,
   ) {}
 
   ngOnInit() {
@@ -32,10 +36,9 @@ export class ConsultaComponent implements OnInit, OnDestroy {
       map(value => this._filter(value))
     );
 
-    this.controller.getConsultaCivil()
+    this.consultaController.getConsultaCivil()
       .subscribe((res) => {
-        res
-        debugger
+        this.downloadFile(res);
       });
   }
 
@@ -71,6 +74,13 @@ export class ConsultaComponent implements OnInit, OnDestroy {
     return this.options.filter(option =>
       option.toLowerCase().includes(filterValue)
     );
+  }
+
+  private downloadFile(file: ArrayBuffer) {
+    const blob = new Blob([file], { type: 'application/pdf' });
+    const fileName = 'consulta-civil';
+    const currentDate = this.globals.getFormatDate();
+    saveAs(blob, `${fileName}-${currentDate}.pdf`);
   }
 
 }

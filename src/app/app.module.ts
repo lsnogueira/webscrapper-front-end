@@ -4,9 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ChatbotComponent } from './presentation/view/pages/chatbot/chatbot.component';
-import { RelatorioComponent } from './presentation/view/pages/relatorio/relatorio.component';
-import { HttpClientModule } from '@angular/common/http';
+import { CoreModule } from './core/core.module';
+import { DataModule } from './data/data.module';
 
 
 
@@ -17,8 +16,9 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CoreModule,
+    DataModule,
     BrowserAnimationsModule,
-    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

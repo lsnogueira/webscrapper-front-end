@@ -5,12 +5,12 @@ import { Observable } from 'rxjs';
 
 import { IConsultaRepository } from 'src/app/core/interfaces';
 import {
-  ConsultaCivilModel,
   ConsultaJuridicaModel,
   ConsultaProcessosModel,
   ConsultaAutomotivaModel,
   ConsultaCriminalModel
 } from 'src/app/core/domain/entity/models';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -21,9 +21,10 @@ export class ConsultaRepositoryService implements IConsultaRepository {
     private http: HttpClient
   ) {}
 
-  getConsultaCivil(): Observable<any> {
-    const headers = new HttpHeaders();
-    return this.http.get<any>('http://localhost:3000/civil', { responseType: 'arraybuffer' as 'json'});
+  getConsultaCivil(): Observable<ArrayBuffer> {
+    return this.http.get<ArrayBuffer>(`${environment.serverUrl}/civil`, {
+      responseType: 'arraybuffer' as 'json'
+    });
   }
   getConsultaJuridica(): Observable<ConsultaJuridicaModel> {
     throw new Error('Method not implemented.');
