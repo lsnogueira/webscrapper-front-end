@@ -1,1 +1,32 @@
-<p>consulta-automotiva works!</p>
+<form class="row col-12">
+  <mat-form-field class="col-6">
+    <input matInput placeholder="CPF/CNPJ" />
+  </mat-form-field>
+  <mat-form-field class="col-6">
+    <input matInput placeholder="Registro/PGU" />
+  </mat-form-field>
+  <mat-form-field class="col-6">
+    <mat-label>UF</mat-label>
+    <mat-select> <!-- formControlName="state" -->
+      <mat-option>Selecione</mat-option>
+      <mat-option *ngFor="let state of states" [value]="state">
+        {{ state }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="col-6">
+    <input matInput placeholder="Nome do Condutor" />
+  </mat-form-field>
+  <mat-form-field class="col-6">
+    <input matInput placeholder="Placa" />
+  </mat-form-field>
+  <mat-form-field class="col-6">
+    <input matInput placeholder="RG" />
+  </mat-form-field>
+  <mat-form-field class="col-6">
+    <input matInput placeholder="RENAVAM" />
+  </mat-form-field>
+  <mat-form-field class="col-6">
+    <input matInput placeholder="Chassi" />
+  </mat-form-field>
+</form>

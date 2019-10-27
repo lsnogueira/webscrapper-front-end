@@ -1,44 +1,24 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>ID Relatório</th>
+    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+  </ng-container>
 
-  <div class="container">
-    <table class="table">
-      <thead class="thead-dark">
-        <tr>
-          <th scope="col">Relatório</th>
-          <th scope="col">Nome cidadão</th>
-          <th scope="col">Data Relatório</th>
-          <th scope="col">Download PDF</th>
-          <th scope="col">Encaminhar</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td><i class="fa fa-file"></i></td>
-          <td><i class="fa fa-download"></i></td>
-        </tr>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td><i class="fa fa-file"></i></td>
-          <td><i class="fa fa-download"></i></td>
-        </tr>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td><i class="fa fa-file"></i></td>
-          <td><i class="fa fa-download"></i></td>
-        </tr>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td><i class="fa fa-file"></i></td>
-          <td><i class="fa fa-download"></i></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <ng-container matColumnDef="queryType">
+    <th mat-header-cell *matHeaderCellDef>Tipo de Consulta</th>
+    <td mat-cell *matCellDef="let element">{{ element.queryType }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef>Data do Relatório</th>
+    <td mat-cell *matCellDef="let element">{{ element.date }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="downloadLink">
+    <th mat-header-cell *matHeaderCellDef>Download PDF</th>
+    <td mat-cell *matCellDef="let element">{{ element.downloadLink }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>

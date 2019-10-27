@@ -1,20 +1,42 @@
 @import '../../../../../assets/scss/utils/colors';
 
 :host {
-
   .search-card {
-    width: 800px;
+    width: 66rem;
     left: 50%;
     transform: translate(-50%);
-  }
-
-  .mat-stroked-button {
-
   }
 
   .first-form-field {
     width: 35%;
     margin-bottom: 1.25rem;
+  }
+
+  .info-block {
+    display: flex;
+    height: 6.25rem;
+    flex-direction: column;
+    justify-content: center;
+
+    .text-line {
+      display: flex;
+      flex-direction: row;
+
+      h5 {
+        font-size: 1rem;
+        margin-right: 0.3125rem;
+      }
+
+      p {
+        font-size: 0.9375rem;
+      }
+
+      .mat-icon {
+        background-color: $wewak;
+        color: #fff;
+        border-radius: 20px;
+      }
+    }
   }
 
   @media screen and (max-width: 1024px) {
@@ -34,6 +56,18 @@
         bottom: 43%;
         left: 7%;
       }
+    }
+  }
+
+  ::ng-deep {
+    .mat-step-header,
+    .mat-step-header:hover,
+    .mat-step-header:active {
+      background-color: transparent;
+    }
+
+    .mat-horizontal-stepper-header-container {
+      margin-bottom: 15px;
     }
   }
 }

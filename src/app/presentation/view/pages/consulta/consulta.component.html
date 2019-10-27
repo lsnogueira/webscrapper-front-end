@@ -9,8 +9,11 @@
   <mat-card-content>
     <mat-horizontal-stepper [linear]="true" #stepper>
       <mat-step [stepControl]="formQueryTypes">
-        <form [formGroup]="formQueryTypes" (onSubmit)="c">
-          <ng-template matStepLabel>Selecione o tipo de consulta</ng-template>
+        <form
+          [formGroup]="formQueryTypes"
+          (ngSubmit)="onSubmit(formQueryTypes)"
+        >
+          <ng-template matStepLabel>Selecione a consulta</ng-template>
           <mat-form-field class="first-form-field">
             <input
               type="text"
@@ -33,34 +36,82 @@
             </mat-autocomplete>
           </mat-form-field>
           <div class="w-100 d-flex justify-content-end">
-            <button mat-button color="warn" matStepperNext>Avançar</button>
+            <button mat-button type="submit" color="warn" matStepperNext>
+              Avançar
+            </button>
           </div>
         </form>
       </mat-step>
       <mat-step>
-        <ng-template matStepLabel>Preencha ao menos um campo</ng-template>
-          <div class="row col-12 mb-2">
-            <div
-              *ngFor="let item of formArray.controls; let i = index"
-              formArrayName="fields"
-              class="col-6"
-            >
-              <p>{{ item | json }}</p>
-            </div>
+        <ng-template matStepLabel>Preencha um campo</ng-template>
+
+        <ng-container *ngIf="selectedOption === options[0]">
+          <div class="w-100 mb-2">
+            <app-consulta-civil></app-consulta-civil>
           </div>
-          <div class="w-100 d-flex justify-content-end">
-            <button mat-button color="warn" class="mr-2" matStepperPrevious>
-              Voltar
-            </button>
-            <button mat-button color="warn" matStepperNext>Avançar</button>
+        </ng-container>
+
+        <ng-container *ngIf="selectedOption === options[1]">
+          <div class="w-100 mb-2">
+            <app-consulta-juridica></app-consulta-juridica>
           </div>
+        </ng-container>
+
+        <ng-container *ngIf="selectedOption === options[2]">
+          <div class="w-100 mb-2">
+            <app-consulta-processos></app-consulta-processos>
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="selectedOption === options[3]">
+          <div class="w-100 mb-2">
+            <app-consulta-automotiva></app-consulta-automotiva>
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="selectedOption === options[4]">
+          <div class="w-100 mb-2">
+            <app-consulta-criminal></app-consulta-criminal>
+          </div>
+        </ng-container>
+
+        <div class="w-100 d-flex justify-content-end">
+          <button
+           mat-button
+           color="warn"
+           class="mr-2"
+           matStepperPrevious
+          >
+            Voltar
+          </button>
+          <button mat-button color="warn" matStepperNext>Avançar</button>
+        </div>
       </mat-step>
       <mat-step>
         <ng-template matStepLabel>Pesquisar</ng-template>
-        Confirme os dados informados para pesquisa
-        <div>
-          <button mat-button matStepperPrevious>Voltar</button>
-          <button mat-button (click)="stepper.reset()">Be happy</button>
+        <h5>Confirme os dados informados para pesquisa</h5>
+        <div class="info-block">
+          <div class="text-line">
+            <h5>Consulta:</h5><p>{{ selectedOption }}</p>
+          </div>
+          <div class="text-line">
+            <h5>Campos preenchidos</h5><mat-icon>done</mat-icon>
+          </div>
+        </div>
+        <div class="w-100 d-flex justify-content-end">
+          <button
+            mat-button
+            color="warn"
+            class="mr-2"
+            matStepperPrevious
+          >
+            Voltar
+          </button>
+          <button
+           mat-button
+           color="warn"
+           (click)="stepper.reset()"
+          >Concluir</button>
         </div>
       </mat-step>
     </mat-horizontal-stepper>

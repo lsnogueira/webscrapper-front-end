@@ -18,9 +18,9 @@ const QUERY_TYPES = QueryTypes;
 })
 export class ConsultaComponent implements OnInit, OnDestroy {
   formQueryTypes: FormGroup;
-  formSearch: FormGroup;
   options = Object.values(QUERY_TYPES);
   filteredOptions: Observable<string[]>;
+  selectedOption: string;
 
   private subscription = new Subscription();
 
@@ -35,36 +35,24 @@ export class ConsultaComponent implements OnInit, OnDestroy {
       startWith(''),
       map(value => this._filter(value))
     );
-
-    this.consultaController.getConsultaCivil()
-      .subscribe((res) => {
-        this.downloadFile(res);
-      });
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
 
-  next(formGroup: any): void {
-    formGroup
-    debugger
+  onSubmit(formGroup: FormGroup): void {
+    const control = formGroup.controls.queryType;
+    this.selectedOption = control.valid ? control.value : null;
   }
 
   get formTypes() {
     return this.formQueryTypes.controls;
   }
 
-  get formArray(): FormArray {
-    return this.formSearch.controls.fields as FormArray;
-  }
-
   private initForms(): void {
     this.formQueryTypes = new FormGroup({
       queryType: new FormControl(null, Validators.required)
-    });
-    this.formSearch = new FormGroup({
-      fields: new FormArray([])
     });
   }
 
