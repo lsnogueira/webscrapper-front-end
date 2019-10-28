@@ -64,8 +64,11 @@
         </ng-container>
 
         <ng-container *ngIf="selectedOption === options[2]">
-          <div class="w-100 mb-2">
-            <app-consulta-processos></app-consulta-processos>
+          <div class="w-100">
+            <app-consulta-processos
+              [stepper]="stepper"
+              (body)="appendBody($event)"
+            ></app-consulta-processos>
           </div>
         </ng-container>
 

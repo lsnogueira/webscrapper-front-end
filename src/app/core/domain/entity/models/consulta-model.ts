@@ -13,7 +13,11 @@ export interface ConsultaJuridicaModel {
 }
 
 export interface ConsultaProcessosModel {
-  id: number;
+  nomeProcesso?: string;
+  numeroProcesso: string;
+  estado?: string;
+  nomeRegistrado?: string;
+  cpfRegistrado?: string;
 }
 
 export interface ConsultaAutomotivaModel {

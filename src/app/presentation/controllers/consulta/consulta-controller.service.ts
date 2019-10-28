@@ -26,8 +26,8 @@ export class ConsultaControllerService implements IConsultaController {
   consultaJuridica(body: ConsultaJuridicaModel): Observable<ArrayBuffer> {
     return this.consultaUsecase.consultaJuridica(body);
   }
-  consultaProcessos(): Observable<ConsultaProcessosModel> {
-    return this.consultaUsecase.consultaProcessos();
+  consultaProcessos(body: ConsultaProcessosModel): Observable<ArrayBuffer> {
+    return this.consultaUsecase.consultaProcessos(body);
   }
   consultaAutomotiva(): Observable<ConsultaAutomotivaModel> {
     return this.consultaUsecase.consultaAutomotiva();

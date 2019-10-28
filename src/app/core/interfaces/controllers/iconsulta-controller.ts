@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 export abstract class IConsultaController {
   abstract consultaCivil(body: ConsultaCivilModel): Observable<ArrayBuffer>;
   abstract consultaJuridica(body: ConsultaJuridicaModel): Observable<ArrayBuffer>;
-  abstract consultaProcessos(): Observable<ConsultaProcessosModel>;
+  abstract consultaProcessos(body: ConsultaProcessosModel): Observable<ArrayBuffer>;
   abstract consultaAutomotiva(): Observable<ConsultaAutomotivaModel>;
   abstract consultaCriminal(): Observable<ConsultaCriminalModel>;
 }

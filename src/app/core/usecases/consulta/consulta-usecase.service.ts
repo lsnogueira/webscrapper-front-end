@@ -27,8 +27,8 @@ export class ConsultaUsecaseService implements IConsultaUsecase {
   consultaJuridica(body: ConsultaJuridicaModel): Observable<ArrayBuffer> {
     return this.consultaRepository.consultaJuridica(body);
   }
-  consultaProcessos(): Observable<ConsultaProcessosModel> {
-    return this.consultaRepository.consultaProcessos();
+  consultaProcessos(body: ConsultaProcessosModel): Observable<ArrayBuffer> {
+    return this.consultaRepository.consultaProcessos(body);
   }
   consultaAutomotiva(): Observable<ConsultaAutomotivaModel> {
     return this.consultaRepository.consultaAutomotiva();

@@ -1,13 +1,30 @@
-<form class="row col-12">
+<form
+  [formGroup]="processoForm"
+  (ngSubmit)="onSubmit(processoForm)"
+  class="row col-12"
+>
   <mat-form-field class="col-12">
-    <input matInput placeholder="Nome do Processo" />
+    <input
+      matInput
+      placeholder="Nome do Processo"
+      formControlName="processName"
+    />
   </mat-form-field>
   <mat-form-field class="col-6">
-    <input matInput placeholder="Tipo de Processo" />
+    <input
+      matInput
+      placeholder="Nº do Processo"
+      required
+      type="number"
+      formControlName="processNumber"
+    />
+    <mat-error>
+      Campo obrigatório.
+    </mat-error>
   </mat-form-field>
   <mat-form-field class="col-6">
     <mat-label>Estado</mat-label>
-    <mat-select> <!-- formControlName="state" -->
+    <mat-select formControlName="state">
       <mat-option>Selecione</mat-option>
       <mat-option *ngFor="let state of states" [value]="state">
         {{ state }}
@@ -15,9 +32,25 @@
     </mat-select>
   </mat-form-field>
   <mat-form-field class="col-6">
-    <input matInput placeholder="Nome do Registrado" />
+    <input
+      matInput
+      placeholder="Nome do Registrado"
+      formControlName="registerName"
+    />
   </mat-form-field>
   <mat-form-field class="col-6">
-    <input matInput placeholder="CPF do Registrado" />
+    <input
+      matInput
+      placeholder="CPF do Registrado"
+      formControlName="cpf"
+      mask="000.000.000-00"
+      formControlName="cpf"
+    />
   </mat-form-field>
+  <div class="w-100 d-flex justify-content-end mt-2">
+    <button mat-button color="warn" class="mr-2">
+      Voltar
+    </button>
+    <button mat-button color="warn" type="submit">Avançar</button>
+  </div>
 </form>
