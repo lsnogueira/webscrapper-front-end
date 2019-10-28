@@ -32,7 +32,7 @@ export class ConsultaControllerService implements IConsultaController {
   consultaAutomotiva(): Observable<ConsultaAutomotivaModel> {
     return this.consultaUsecase.consultaAutomotiva();
   }
-  consultaCriminal(): Observable<ConsultaCriminalModel> {
-    return this.consultaUsecase.consultaCriminal();
+  consultaCriminal(body: ConsultaCriminalModel): Observable<ArrayBuffer> {
+    return this.consultaUsecase.consultaCriminal(body);
   }
 }

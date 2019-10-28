@@ -11,7 +11,8 @@ import { GlobalsService } from 'src/app/presentation/shared/services';
 import {
   ConsultaCivilModel,
   ConsultaJuridicaModel,
-  ConsultaProcessosModel
+  ConsultaProcessosModel,
+  ConsultaCriminalModel
 } from 'src/app/core/domain/entity/models';
 import { MatStepper } from '@angular/material';
 
@@ -27,12 +28,13 @@ export class ConsultaComponent implements OnInit, OnDestroy {
   options = Object.values(QUERY_TYPES);
   filteredOptions: Observable<string[]>;
   selectedOption: string;
+  isLoading: boolean;
+  isError: boolean;
   formValues:
     | ConsultaCivilModel
     | ConsultaJuridicaModel
-    | ConsultaProcessosModel;
-  isLoading: boolean;
-  isError: boolean;
+    | ConsultaProcessosModel
+    | ConsultaCriminalModel;
 
   private subscription = new Subscription();
 
@@ -143,6 +145,41 @@ export class ConsultaComponent implements OnInit, OnDestroy {
             (res: ArrayBuffer) => {
               this.isLoading = false;
               this.downloadFile(res, 'consulta-processos');
+              stepper.reset();
+            },
+            rej => {
+              this.isLoading = false;
+              this.isError = true;
+              console.error(rej);
+              setTimeout(() => {
+                this.isError = false;
+                stepper.reset();
+              }, 10000);
+            }
+          )
+        );
+        break;
+      case this.options[4]:
+        this.formValues = {
+          apresentacao: String(
+            (this.formValues as ConsultaCriminalModel).apresentacao
+          ),
+          departamentos: String(
+            (this.formValues as ConsultaCriminalModel).departamentos
+          ),
+          distritos: String(
+            (this.formValues as ConsultaCriminalModel).distritos
+          ),
+          instituicoes: String((this.formValues as ConsultaCriminalModel).instituicoes),
+          seccionais: String(
+            (this.formValues as ConsultaCriminalModel).seccionais
+          )
+        };
+        this.subscription.add(
+          this.consultaController.consultaCriminal(this.formValues).subscribe(
+            (res: ArrayBuffer) => {
+              this.isLoading = false;
+              this.downloadFile(res, 'consulta-criminal');
               stepper.reset();
             },
             rej => {

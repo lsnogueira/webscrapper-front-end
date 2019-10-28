@@ -12,5 +12,5 @@ export abstract class IConsultaUsecase {
   abstract consultaJuridica(body: ConsultaJuridicaModel): Observable<ArrayBuffer>;
   abstract consultaProcessos(body: ConsultaProcessosModel): Observable<ArrayBuffer>;
   abstract consultaAutomotiva(): Observable<ConsultaAutomotivaModel>;
-  abstract consultaCriminal(): Observable<ConsultaCriminalModel>;
+  abstract consultaCriminal(body: ConsultaCriminalModel): Observable<ArrayBuffer>;
 }

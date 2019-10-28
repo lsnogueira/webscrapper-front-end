@@ -44,7 +44,11 @@ export class ConsultaRepositoryService implements IConsultaRepository {
   consultaAutomotiva(): Observable<ConsultaAutomotivaModel> {
     throw new Error('Method not implemented.');
   }
-  consultaCriminal(): Observable<ConsultaCriminalModel> {
-    throw new Error('Method not implemented.');
+  consultaCriminal(body: ConsultaCriminalModel): Observable<ArrayBuffer> {
+    return this.http
+      .get<ArrayBuffer>(`${environment.serverUrl}/criminal`, {
+        responseType: 'arraybuffer' as 'json'
+      })
+      .pipe(retry(3));
   }
 }

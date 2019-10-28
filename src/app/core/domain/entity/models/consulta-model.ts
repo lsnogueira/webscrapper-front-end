@@ -25,9 +25,9 @@ export interface ConsultaAutomotivaModel {
 }
 
 export interface ConsultaCriminalModel {
-  id: number;
-}
-
-export interface ConsultaCriminalModel {
-  id: number;
+  apresentacao: string;
+  instituicoes: string;
+  departamentos: string;
+  seccionais: string;
+  distritos: string;
 }

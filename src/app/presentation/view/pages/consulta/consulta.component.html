@@ -79,8 +79,11 @@
         </ng-container>
 
         <ng-container *ngIf="selectedOption === options[4]">
-          <div class="w-100 mb-2">
-            <app-consulta-criminal></app-consulta-criminal>
+          <div class="w-100">
+            <app-consulta-criminal
+              [stepper]="stepper"
+              (body)="appendBody($event)"
+            ></app-consulta-criminal>
           </div>
         </ng-container>
       </mat-step>

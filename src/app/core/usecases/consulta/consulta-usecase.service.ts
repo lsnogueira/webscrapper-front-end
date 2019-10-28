@@ -33,7 +33,7 @@ export class ConsultaUsecaseService implements IConsultaUsecase {
   consultaAutomotiva(): Observable<ConsultaAutomotivaModel> {
     return this.consultaRepository.consultaAutomotiva();
   }
-  consultaCriminal(): Observable<ConsultaCriminalModel> {
-    return this.consultaRepository.consultaCriminal();
+  consultaCriminal(body: ConsultaCriminalModel): Observable<ArrayBuffer> {
+    return this.consultaRepository.consultaCriminal(body);
   }
 }
