@@ -11,16 +11,26 @@ import { ConsultaJuridicaComponent } from './components/consulta-juridica/consul
 import { ConsultaProcessosComponent } from './components/consulta-processos/consulta-processos.component';
 import { ConsultaAutomotivaComponent } from './components/consulta-automotiva/consulta-automotiva.component';
 import { ConsultaCriminalComponent } from './components/consulta-criminal/consulta-criminal.component';
-
+import { SharedModule } from 'src/app/presentation/shared/shared.module';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
-  declarations: [ConsultaComponent, ConsultaCivilComponent, ConsultaJuridicaComponent, ConsultaProcessosComponent, ConsultaAutomotivaComponent, ConsultaCriminalComponent],
+  declarations: [
+    ConsultaComponent,
+    ConsultaCivilComponent,
+    ConsultaJuridicaComponent,
+    ConsultaProcessosComponent,
+    ConsultaAutomotivaComponent,
+    ConsultaCriminalComponent
+  ],
   imports: [
     CommonModule,
     AppMaterialModule,
     BaseModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule,
+    NgxMaskModule.forRoot()
   ]
 })
-export class ConsultaModule { }
+export class ConsultaModule {}

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { DataModule } from './data/data.module';
+import { NgxMaskModule, IConfig } from 'ngx-mask';
 
 
 

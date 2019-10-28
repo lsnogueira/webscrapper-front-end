@@ -46,8 +46,11 @@
         <ng-template matStepLabel>Preencha um campo</ng-template>
 
         <ng-container *ngIf="selectedOption === options[0]">
-          <div class="w-100 mb-2">
-            <app-consulta-civil></app-consulta-civil>
+          <div class="w-100">
+            <app-consulta-civil
+              [stepper]="stepper"
+              (body)="appendBody($event)"
+            ></app-consulta-civil>
           </div>
         </ng-container>
 
@@ -74,45 +77,54 @@
             <app-consulta-criminal></app-consulta-criminal>
           </div>
         </ng-container>
-
-        <div class="w-100 d-flex justify-content-end">
-          <button
-           mat-button
-           color="warn"
-           class="mr-2"
-           matStepperPrevious
-          >
-            Voltar
-          </button>
-          <button mat-button color="warn" matStepperNext>Avançar</button>
-        </div>
       </mat-step>
       <mat-step>
         <ng-template matStepLabel>Pesquisar</ng-template>
-        <h5>Confirme os dados informados para pesquisa</h5>
-        <div class="info-block">
-          <div class="text-line">
-            <h5>Consulta:</h5><p>{{ selectedOption }}</p>
-          </div>
-          <div class="text-line">
-            <h5>Campos preenchidos</h5><mat-icon>done</mat-icon>
-          </div>
-        </div>
-        <div class="w-100 d-flex justify-content-end">
-          <button
-            mat-button
-            color="warn"
-            class="mr-2"
-            matStepperPrevious
+        <ng-container
+          *ngIf="isError; then errorTemplate; else sucessTemplate"
+        ></ng-container>
+        <ng-template #errorTemplate>
+          <div
+            class="error-block col-12 d-flex flex-column justify-content-center align-items-center"
           >
-            Voltar
-          </button>
-          <button
-           mat-button
-           color="warn"
-           (click)="stepper.reset()"
-          >Concluir</button>
-        </div>
+            <img
+              src="../../../../../assets/images/icon/error-bot.png"
+              alt="lupa-carregando"
+              class="no-results mb-1"
+            />
+              <span class="no-results-text mt-2 text-center">
+                Ocorreu um erro. Tente novamente mais tarde.
+              </span>
+          </div>
+        </ng-template>
+        <ng-template #sucessTemplate>
+          <ng-container *ngIf="isLoading; else notLoading">
+            <div class="justify-content-center w-100">
+              <app-loading></app-loading>
+            </div>
+          </ng-container>
+          <ng-template #notLoading>
+            <h5>Confirme os dados informados para pesquisa</h5>
+            <div class="info-block">
+              <div class="text-line">
+                <h5>Consulta:</h5>
+                <p>{{ selectedOption }}</p>
+              </div>
+              <div class="text-line">
+                <h5>Campos preenchidos</h5>
+                <mat-icon>done</mat-icon>
+              </div>
+            </div>
+            <div class="w-100 d-flex justify-content-end">
+              <button mat-button color="warn" class="mr-2" matStepperPrevious>
+                Voltar
+              </button>
+              <button mat-button color="warn" (click)="search(stepper)">
+                Concluir
+              </button>
+            </div>
+          </ng-template>
+        </ng-template>
       </mat-step>
     </mat-horizontal-stepper>
   </mat-card-content>

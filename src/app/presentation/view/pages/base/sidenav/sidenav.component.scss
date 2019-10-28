@@ -21,13 +21,13 @@
   }
 
   .main-menu {
-    margin-top: 78px;
+    padding-top: 78px;
     background: #fff;
     border-right: 1px solid $border-navs;
     position: absolute;
     top: 0;
     bottom: 0;
-    height: 87vh;
+    height: 100%;
     left: 0;
     width: 60px;
     overflow: hidden;

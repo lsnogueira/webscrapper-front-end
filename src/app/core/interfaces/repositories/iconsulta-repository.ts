@@ -8,7 +8,7 @@ import {
 import { Observable } from 'rxjs';
 
 export abstract class IConsultaRepository {
-  abstract getConsultaCivil(): Observable<ArrayBuffer>;
+  abstract getConsultaCivil(body: ConsultaCivilModel): Observable<ArrayBuffer>;
   abstract getConsultaJuridica(): Observable<ConsultaJuridicaModel>;
   abstract getConsultaProcessos(): Observable<ConsultaProcessosModel>;
   abstract getConsultaAutomotiva(): Observable<ConsultaAutomotivaModel>;

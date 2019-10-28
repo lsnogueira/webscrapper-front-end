@@ -1,5 +1,10 @@
 export interface ConsultaCivilModel {
-  id: number;
+  nome: string;
+  cpf: string;
+  nomeMae: string;
+  dataNascimento: string;
+  numero_processo: string;
+  rg: string;
 }
 
 export interface ConsultaJuridicaModel {

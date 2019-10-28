@@ -11,20 +11,20 @@ import {
   ConsultaCriminalModel
 } from 'src/app/core/domain/entity/models';
 import { environment } from 'src/environments/environment';
+import { retry } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConsultaRepositoryService implements IConsultaRepository {
+  constructor(private http: HttpClient) {}
 
-  constructor(
-    private http: HttpClient
-  ) {}
-
-  getConsultaCivil(): Observable<ArrayBuffer> {
-    return this.http.get<ArrayBuffer>(`${environment.serverUrl}/civil`, {
-      responseType: 'arraybuffer' as 'json'
-    });
+  getConsultaCivil(body: any): Observable<ArrayBuffer> {
+    return this.http
+      .post<ArrayBuffer>(`${environment.serverUrl}/civil`, body, {
+        responseType: 'arraybuffer' as 'json'
+      })
+      .pipe(retry(3));
   }
   getConsultaJuridica(): Observable<ConsultaJuridicaModel> {
     throw new Error('Method not implemented.');

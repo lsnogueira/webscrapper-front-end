@@ -20,8 +20,8 @@ export class ConsultaControllerService implements IConsultaController {
     private consultaUsecase: IConsultaUsecase,
   ) {}
 
-  getConsultaCivil(): Observable<ArrayBuffer> {
-    return this.consultaUsecase.getConsultaCivil();
+  getConsultaCivil(body: ConsultaCivilModel): Observable<ArrayBuffer> {
+    return this.consultaUsecase.getConsultaCivil(body);
   }
   getConsultaJuridica(): Observable<ConsultaJuridicaModel> {
     return this.consultaUsecase.getConsultaJuridica();
