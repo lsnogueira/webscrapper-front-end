@@ -1,10 +1,11 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { QueryTypes } from 'src/app/presentation/shared/enums';
 import { Observable, Subscription } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { saveAs } from 'file-saver';
+import Swal from 'sweetalert2';
 
 import { ConsultaControllerService } from 'src/app/presentation/controllers/consulta/consulta-controller.service';
 import { GlobalsService } from 'src/app/presentation/shared/services';
@@ -24,6 +25,9 @@ const QUERY_TYPES = QueryTypes;
   styleUrls: ['./consulta.component.scss']
 })
 export class ConsultaComponent implements OnInit, OnDestroy {
+  @ViewChild('stepper', {static: false})
+  stepper: MatStepper;
+
   formQueryTypes: FormGroup;
   options = Object.values(QUERY_TYPES);
   filteredOptions: Observable<string[]>;
@@ -57,6 +61,15 @@ export class ConsultaComponent implements OnInit, OnDestroy {
 
   onSubmit(formGroup: FormGroup): void {
     const control = formGroup.controls.queryType;
+    if (control.value === this.options[3]) {
+      Swal.fire(
+        'Info',
+        'A opção selecionada ainda está em construção. Por favor selecione outra',
+        'info'
+      );
+      this.stepper.reset();
+      return;
+    }
     this.selectedOption = control.valid ? control.value : null;
   }
 
@@ -86,12 +99,14 @@ export class ConsultaComponent implements OnInit, OnDestroy {
             (res: ArrayBuffer) => {
               this.isLoading = false;
               this.downloadFile(res, 'consulta-civil');
+              Swal.fire('Sucesso!', 'Arquivo gerado com sucesso!', 'success');
               stepper.reset();
             },
             rej => {
               this.isLoading = false;
               this.isError = true;
               console.error(rej);
+              Swal.fire('Erro!', 'Ocorreu um erro ao gerar o arquivo', 'error');
               setTimeout(() => {
                 this.isError = false;
                 stepper.reset();
@@ -110,12 +125,14 @@ export class ConsultaComponent implements OnInit, OnDestroy {
             (res: ArrayBuffer) => {
               this.isLoading = false;
               this.downloadFile(res, 'consulta-juridica');
+              Swal.fire('Sucesso!', 'Arquivo gerado com sucesso!', 'success');
               stepper.reset();
             },
             rej => {
               this.isLoading = false;
               this.isError = true;
               console.error(rej);
+              Swal.fire('Erro!', 'Ocorreu um erro ao gerar o arquivo', 'error');
               setTimeout(() => {
                 this.isError = false;
                 stepper.reset();
@@ -145,12 +162,14 @@ export class ConsultaComponent implements OnInit, OnDestroy {
             (res: ArrayBuffer) => {
               this.isLoading = false;
               this.downloadFile(res, 'consulta-processos');
+              Swal.fire('Sucesso!', 'Arquivo gerado com sucesso!', 'success');
               stepper.reset();
             },
             rej => {
               this.isLoading = false;
               this.isError = true;
               console.error(rej);
+              Swal.fire('Erro!', 'Ocorreu um erro ao gerar o arquivo', 'error');
               setTimeout(() => {
                 this.isError = false;
                 stepper.reset();
@@ -170,7 +189,9 @@ export class ConsultaComponent implements OnInit, OnDestroy {
           distritos: String(
             (this.formValues as ConsultaCriminalModel).distritos
           ),
-          instituicoes: String((this.formValues as ConsultaCriminalModel).instituicoes),
+          instituicoes: String(
+            (this.formValues as ConsultaCriminalModel).instituicoes
+          ),
           seccionais: String(
             (this.formValues as ConsultaCriminalModel).seccionais
           )
@@ -180,12 +201,14 @@ export class ConsultaComponent implements OnInit, OnDestroy {
             (res: ArrayBuffer) => {
               this.isLoading = false;
               this.downloadFile(res, 'consulta-criminal');
+              Swal.fire('Sucesso!', 'Arquivo gerado com sucesso!', 'success');
               stepper.reset();
             },
             rej => {
               this.isLoading = false;
               this.isError = true;
               console.error(rej);
+              Swal.fire('Erro!', 'Ocorreu um erro ao gerar o arquivo', 'error');
               setTimeout(() => {
                 this.isError = false;
                 stepper.reset();

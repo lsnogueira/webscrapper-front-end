@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConsultaControllerService } from 'src/app/presentation/controllers/consulta/consulta-controller.service';
 
 export interface PeriodicElement {
   id: number;
@@ -29,10 +30,20 @@ export class RelatorioComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'queryType', 'date', 'downloadLink'];
   dataSource = ELEMENT_DATA;
+  isLoading = false;
 
-  constructor() { }
+  constructor(private consultaController: ConsultaControllerService) { }
 
   ngOnInit() {
+    this.isLoading = true;
+    this.consultaController.getRelatorios(0).subscribe((res) => {
+      this.isLoading = false;
+      res
+      debugger
+    });
   }
 
+  selectReport(row: any) {
+    console.log(row);
+  }
 }

@@ -36,4 +36,7 @@ export class ConsultaUsecaseService implements IConsultaUsecase {
   consultaCriminal(body: ConsultaCriminalModel): Observable<ArrayBuffer> {
     return this.consultaRepository.consultaCriminal(body);
   }
+  getRelatorios(page: number): Observable<any>{
+    return this.consultaRepository.getRelatorios(page);
+  }
 }

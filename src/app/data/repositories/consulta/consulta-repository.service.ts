@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 
@@ -50,5 +50,11 @@ export class ConsultaRepositoryService implements IConsultaRepository {
         responseType: 'arraybuffer' as 'json'
       })
       .pipe(retry(3));
+  }
+  getRelatorios(page: number): Observable<any> {
+    const params = new HttpParams().append('page', String(page));
+    return this.http.get<any>(`${environment.serverUrl}/relatorios`, {
+      params
+    });
   }
 }

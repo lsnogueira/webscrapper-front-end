@@ -13,4 +13,5 @@ export abstract class IConsultaRepository {
   abstract consultaProcessos(body: ConsultaProcessosModel): Observable<ArrayBuffer>;
   abstract consultaAutomotiva(): Observable<ConsultaAutomotivaModel>;
   abstract consultaCriminal(body: ConsultaCriminalModel): Observable<ArrayBuffer>;
+  abstract getRelatorios(page: number): Observable<any>;
 }
