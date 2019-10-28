@@ -20,19 +20,19 @@ export class ConsultaControllerService implements IConsultaController {
     private consultaUsecase: IConsultaUsecase,
   ) {}
 
-  getConsultaCivil(body: ConsultaCivilModel): Observable<ArrayBuffer> {
-    return this.consultaUsecase.getConsultaCivil(body);
+  consultaCivil(body: ConsultaCivilModel): Observable<ArrayBuffer> {
+    return this.consultaUsecase.consultaCivil(body);
   }
-  getConsultaJuridica(): Observable<ConsultaJuridicaModel> {
-    return this.consultaUsecase.getConsultaJuridica();
+  consultaJuridica(body: ConsultaJuridicaModel): Observable<ArrayBuffer> {
+    return this.consultaUsecase.consultaJuridica(body);
   }
-  getConsultaProcessos(): Observable<ConsultaProcessosModel> {
-    return this.consultaUsecase.getConsultaProcessos();
+  consultaProcessos(): Observable<ConsultaProcessosModel> {
+    return this.consultaUsecase.consultaProcessos();
   }
-  getConsultaAutomotiva(): Observable<ConsultaAutomotivaModel> {
-    return this.consultaUsecase.getConsultaAutomotiva();
+  consultaAutomotiva(): Observable<ConsultaAutomotivaModel> {
+    return this.consultaUsecase.consultaAutomotiva();
   }
-  getConsultaCriminal(): Observable<ConsultaCriminalModel> {
-    return this.consultaUsecase.getConsultaCriminal();
+  consultaCriminal(): Observable<ConsultaCriminalModel> {
+    return this.consultaUsecase.consultaCriminal();
   }
 }

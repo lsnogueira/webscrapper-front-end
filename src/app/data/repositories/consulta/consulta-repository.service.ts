@@ -8,7 +8,8 @@ import {
   ConsultaJuridicaModel,
   ConsultaProcessosModel,
   ConsultaAutomotivaModel,
-  ConsultaCriminalModel
+  ConsultaCriminalModel,
+  ConsultaCivilModel
 } from 'src/app/core/domain/entity/models';
 import { environment } from 'src/environments/environment';
 import { retry } from 'rxjs/operators';
@@ -19,23 +20,27 @@ import { retry } from 'rxjs/operators';
 export class ConsultaRepositoryService implements IConsultaRepository {
   constructor(private http: HttpClient) {}
 
-  getConsultaCivil(body: any): Observable<ArrayBuffer> {
+  consultaCivil(body: ConsultaCivilModel): Observable<ArrayBuffer> {
     return this.http
       .post<ArrayBuffer>(`${environment.serverUrl}/civil`, body, {
         responseType: 'arraybuffer' as 'json'
       })
       .pipe(retry(3));
   }
-  getConsultaJuridica(): Observable<ConsultaJuridicaModel> {
+  consultaJuridica(body: ConsultaJuridicaModel): Observable<ArrayBuffer> {
+    return this.http
+      .post<ArrayBuffer>(`${environment.serverUrl}/juridica`, body, {
+        responseType: 'arraybuffer' as 'json'
+      })
+      .pipe(retry(3));
+  }
+  consultaProcessos(): Observable<ConsultaProcessosModel> {
     throw new Error('Method not implemented.');
   }
-  getConsultaProcessos(): Observable<ConsultaProcessosModel> {
+  consultaAutomotiva(): Observable<ConsultaAutomotivaModel> {
     throw new Error('Method not implemented.');
   }
-  getConsultaAutomotiva(): Observable<ConsultaAutomotivaModel> {
-    throw new Error('Method not implemented.');
-  }
-  getConsultaCriminal(): Observable<ConsultaCriminalModel> {
+  consultaCriminal(): Observable<ConsultaCriminalModel> {
     throw new Error('Method not implemented.');
   }
 }

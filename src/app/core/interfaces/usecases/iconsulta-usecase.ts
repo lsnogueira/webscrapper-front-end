@@ -8,9 +8,9 @@ import {
 import { Observable } from 'rxjs';
 
 export abstract class IConsultaUsecase {
-  abstract getConsultaCivil(body: ConsultaCivilModel): Observable<ArrayBuffer>;
-  abstract getConsultaJuridica(): Observable<ConsultaJuridicaModel>;
-  abstract getConsultaProcessos(): Observable<ConsultaProcessosModel>;
-  abstract getConsultaAutomotiva(): Observable<ConsultaAutomotivaModel>;
-  abstract getConsultaCriminal(): Observable<ConsultaCriminalModel>;
+  abstract consultaCivil(body: ConsultaCivilModel): Observable<ArrayBuffer>;
+  abstract consultaJuridica(body: ConsultaJuridicaModel): Observable<ArrayBuffer>;
+  abstract consultaProcessos(): Observable<ConsultaProcessosModel>;
+  abstract consultaAutomotiva(): Observable<ConsultaAutomotivaModel>;
+  abstract consultaCriminal(): Observable<ConsultaCriminalModel>;
 }

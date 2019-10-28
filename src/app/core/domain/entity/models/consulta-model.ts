@@ -8,7 +8,8 @@ export interface ConsultaCivilModel {
 }
 
 export interface ConsultaJuridicaModel {
-  id: number;
+  nome: string;
+  cnpj: string;
 }
 
 export interface ConsultaProcessosModel {
