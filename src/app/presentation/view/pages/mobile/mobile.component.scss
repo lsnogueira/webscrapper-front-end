@@ -1,0 +1,22 @@
+:host {
+  .mat-icon {
+    width: 60px;
+  }
+
+  .principal {
+    position: absolute;
+    top: 20%;
+    height: 15.625rem;
+  }
+
+  .no-results-text {
+    display: block;
+    color: rgba(0, 0, 0, 0.54);
+    font-size: 1.5rem;
+  }
+
+  .text-block {
+    display: flex;
+    flex-direction: column;
+  }
+}

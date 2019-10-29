@@ -5,6 +5,7 @@ import { RelatorioComponent } from './relatorio/relatorio.component';
 import { ChatbotComponent } from './chatbot/chatbot.component';
 import { PagesComponent } from './pages.component';
 import { ConsultaComponent } from './consulta/consulta.component';
+import { MobileComponent } from './mobile/mobile.component';
 
 const routes: Routes = [
   {
@@ -22,7 +23,8 @@ const routes: Routes = [
     children: [
       { path: 'consulta', component: ConsultaComponent },
       { path: 'relatorio', component: RelatorioComponent },
-      { path: 'chatbot', component: ChatbotComponent }
+      { path: 'chatbot', component: ChatbotComponent },
+      { path: 'mobile', component: MobileComponent }
     ]
   }
 ];

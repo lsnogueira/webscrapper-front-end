@@ -13,4 +13,6 @@ export abstract class IConsultaController {
   abstract consultaProcessos(body: ConsultaProcessosModel): Observable<ArrayBuffer>;
   abstract consultaAutomotiva(): Observable<ConsultaAutomotivaModel>;
   abstract consultaCriminal(body: ConsultaCriminalModel): Observable<ArrayBuffer>;
+  abstract getRelatorios(): Observable<any>;
+  abstract downloadFile(id: string): Observable<ArrayBuffer>;
 }

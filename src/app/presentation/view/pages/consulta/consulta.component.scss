@@ -2,14 +2,16 @@
 
 :host {
   .search-card {
+    position: absolute;
     width: 66rem;
+    top: 20%;
     left: 50%;
     transform: translate(-50%);
   }
 
   .first-form-field {
     width: 35%;
-    margin-bottom: 1.25rem;
+    // margin-bottom: 1.25rem;
   }
 
   .info-block {
@@ -56,7 +58,7 @@
     .search-card {
       width: 90vw;
       height: 60vh;
-      margin-top: 20px !important;
+      // margin-top: 20px !important;
     }
 
     .content {
@@ -80,7 +82,7 @@
     }
 
     .mat-horizontal-stepper-header-container {
-      margin-bottom: 15px;
+      // margin-bottom: 15px;
     }
   }
 }

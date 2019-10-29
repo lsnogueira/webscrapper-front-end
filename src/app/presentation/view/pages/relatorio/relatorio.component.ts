@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ConsultaControllerService } from 'src/app/presentation/controllers/consulta/consulta-controller.service';
+import { Subscription } from 'rxjs';
+import { GlobalsService } from 'src/app/presentation/shared/services';
+import Swal from 'sweetalert2';
+import _ from 'lodash';
 
 export interface PeriodicElement {
   id: number;
@@ -7,32 +12,69 @@ export interface PeriodicElement {
   downloadLink: string;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {id: 1, queryType: 'Hydrogen', date: 1.0079, downloadLink: 'H'},
-  {id: 2, queryType: 'Helium', date: 4.0026, downloadLink: 'He'},
-  {id: 3, queryType: 'Lithium', date: 6.941, downloadLink: 'Li'},
-  {id: 4, queryType: 'Beryllium', date: 9.0122, downloadLink: 'Be'},
-  {id: 5, queryType: 'Boron', date: 10.811, downloadLink: 'B'},
-  {id: 6, queryType: 'Carbon', date: 12.0107, downloadLink: 'C'},
-  {id: 7, queryType: 'Nitrogen', date: 14.0067, downloadLink: 'N'},
-  {id: 8, queryType: 'Oxygen', date: 15.9994, downloadLink: 'O'},
-  {id: 9, queryType: 'Fluorine', date: 18.9984, downloadLink: 'F'},
-  {id: 10, queryType: 'Neon', date: 20.1797, downloadLink: 'Ne'},
-];
-
 @Component({
   selector: 'app-relatorio',
   templateUrl: './relatorio.component.html',
   styleUrls: ['./relatorio.component.scss']
 })
-export class RelatorioComponent implements OnInit {
+export class RelatorioComponent implements OnInit, OnDestroy {
+  displayedColumns: string[] = [
+    '_id',
+    'tipoConsulta',
+    'dataConsulta',
+    'downloadLink'
+  ];
+  dataSource = [];
+  isLoading = false;
 
-  displayedColumns: string[] = ['id', 'queryType', 'date', 'downloadLink'];
-  dataSource = ELEMENT_DATA;
+  private subscrition = new Subscription();
 
-  constructor() { }
+  constructor(
+    private consultaController: ConsultaControllerService,
+    private globals: GlobalsService
+  ) {}
 
   ngOnInit() {
+    this.isLoading = true;
+    this.subscrition.add(
+      this.consultaController.getRelatorios().subscribe(res => {
+        for (let i = 0; i < 10; i++) {
+          const element = res[i];
+          this.dataSource.push(element);
+        }
+        _.orderBy(this.dataSource, ['dataConsulta'], ['asc']);
+        this.dataSource.map(item => {
+          item.downloadLink = item._id;
+        });
+        this.isLoading = false;
+      })
+    );
   }
 
+  ngOnDestroy() {
+    this.subscrition.unsubscribe();
+  }
+
+  selectReport(row: any) {
+    this.isLoading = true;
+    this.subscrition.add(
+      this.consultaController
+        .downloadFile(row._id)
+        .subscribe(res => {
+          this.downloadFile(res, row.tipoConsulta);
+          this.isLoading = false;
+          Swal.fire('Sucesso!', 'Arquivo obtido com sucesso!', 'success');
+        }, rej => {
+          console.error(rej);
+          this.isLoading = false;
+          Swal.fire('Erro!', 'Um erro inesperado aconteceu', 'error');
+        })
+    );
+  }
+
+  private downloadFile(file: ArrayBuffer, fileName: string) {
+    const blob = new Blob([file], { type: 'application/pdf' });
+    const currentDate = this.globals.getFormatDate();
+    saveAs(blob, `${fileName}-${currentDate}.pdf`);
+  }
 }
