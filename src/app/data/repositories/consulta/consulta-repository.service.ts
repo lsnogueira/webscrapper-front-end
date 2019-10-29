@@ -51,10 +51,12 @@ export class ConsultaRepositoryService implements IConsultaRepository {
       })
       .pipe(retry(3));
   }
-  getRelatorios(page: number): Observable<any> {
-    const params = new HttpParams().append('page', String(page));
-    return this.http.get<any>(`${environment.serverUrl}/relatorios`, {
-      params
-    });
+  getRelatorios(): Observable<any> {
+    return this.http.get<any>(`${environment.serverUrl}/relatorio`);
+  }
+  downloadFile(id: string): Observable<ArrayBuffer> {
+    const params = new HttpParams()
+      .append('id', id);
+    return this.http.get<any>(`${environment.serverUrl}/relatorio`, { params });
   }
 }

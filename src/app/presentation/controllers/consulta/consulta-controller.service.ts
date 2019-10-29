@@ -35,7 +35,10 @@ export class ConsultaControllerService implements IConsultaController {
   consultaCriminal(body: ConsultaCriminalModel): Observable<ArrayBuffer> {
     return this.consultaUsecase.consultaCriminal(body);
   }
-  getRelatorios(page: number): Observable<any> {
-    return this.consultaUsecase.getRelatorios(page);
+  getRelatorios(): Observable<any> {
+    return this.consultaUsecase.getRelatorios();
+  }
+  downloadFile(id: string): Observable<ArrayBuffer> {
+    return this.consultaUsecase.downloadFile(id);
   }
 }

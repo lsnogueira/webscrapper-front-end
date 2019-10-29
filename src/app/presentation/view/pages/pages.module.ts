@@ -9,11 +9,13 @@ import { ConsultaModule } from './consulta/consulta.module';
 import { RelatorioModule } from './relatorio/relatorio.module';
 import { ChatbotModule } from './chatbot/chatbot.module';
 import { RouterModule } from '@angular/router';
+import { MobileComponent } from './mobile/mobile.component';
+import { AppMaterialModule } from 'src/app/app-material.module';
 
 
 
 @NgModule({
-  declarations: [PagesComponent],
+  declarations: [PagesComponent, MobileComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,
@@ -22,7 +24,8 @@ import { RouterModule } from '@angular/router';
     RelatorioModule,
     ConsultaModule,
     ChatbotModule,
-    RouterModule
+    RouterModule,
+    AppMaterialModule
   ]
 })
 export class PagesModule { }
