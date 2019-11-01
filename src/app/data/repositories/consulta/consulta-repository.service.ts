@@ -55,8 +55,8 @@ export class ConsultaRepositoryService implements IConsultaRepository {
     return this.http.get<any>(`${environment.serverUrl}/relatorio`);
   }
   downloadFile(id: string): Observable<ArrayBuffer> {
-    const params = new HttpParams()
-      .append('id', id);
-    return this.http.get<any>(`${environment.serverUrl}/relatorio`, { params });
+    return this.http.get<ArrayBuffer>(`${environment.serverUrl}/relatorio/${id}`, {
+      responseType: 'arraybuffer' as 'json'
+    });
   }
 }
